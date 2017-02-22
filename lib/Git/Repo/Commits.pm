@@ -41,6 +41,11 @@ sub commits {
   my $self = shift;
   return $self->{'_commits'};
 }
+
+sub name {
+  my $self = shift;
+  return $self->{'_repo'};
+}
 		 
 
 1; # Magic true value required at end of module
@@ -72,6 +77,10 @@ Creates an object with information about all commits
 =head2 commits
 
 Returns an array with commit information
+
+=head2 name
+
+Returns the name of the directory, which usually is also the name of the repo. 
 
 
 =head1 INTERFACE 
