@@ -5,7 +5,7 @@ use strict;
 use Carp;
 use Git;
 
-use version; $VERSION = qv('0.0.3');
+use version; our $VERSION = qv('0.0.3');
 
 # Other recommended modules (uncomment to use):
 #  use IO::Prompt;
@@ -33,8 +33,8 @@ sub new {
   my $commits = { _repo => $dir,
 		  _name => $repo_name,
 		  _commits => \@commit_info };
-  bless $commits, $class;
-  return $commits;
+  return bless $commits, $class;
+
 }
 
 sub commits {
