@@ -44,7 +44,7 @@ sub commits {
 
 sub name {
   my $self = shift;
-  return $self->{'_repo'};
+  return $self->{'_name'};
 }
 		 
 
