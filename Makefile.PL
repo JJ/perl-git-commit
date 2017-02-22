@@ -12,6 +12,7 @@ WriteMakefile(
         'Test::More' => 0,
 	    'version'    => 0,
 	    'Git' => 0,
+	    'Test::Perl::Critic', 
     },
     dist                => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
     clean               => { FILES => 'Git-Repo-Commits-*' },
