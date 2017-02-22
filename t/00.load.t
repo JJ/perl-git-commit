@@ -12,6 +12,8 @@ BEGIN {
 mkdir "test-repo";
 chdir "test-repo";
 Git::command_oneline( 'init' );
+Git::command_oneline( 'config','user.email','jj@merelo.net' );
+Git::command_oneline( 'config','user.name','JJ' );
 my $repo = Git->repository (Directory => '.');
 write_file("one","one");
 $repo->command_oneline( 'add', 'one' );
