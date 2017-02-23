@@ -1,4 +1,4 @@
-use Test::More tests => 4; # -*- mode: cperl -*-
+use Test::More tests => 5; # -*- mode: cperl -*-
 use Git;
 use File::Slurp::Tiny qw(write_file);
 
@@ -21,7 +21,8 @@ $repo->command_oneline( 'commit', '-am', "First" );
 write_file("two","two");
 $repo->command_oneline( 'add', 'two' );
 write_file("one","one\none");
-$repo->command_oneline( 'commit', '-am', "Second" );
+my $commit_author =  'N. O. T. Mine <not@mi.ne>';
+$repo->command_oneline( 'commit', '-am', "Second", "--author", $commit_author );
 
 # Now the real thing
 my $commits = new Git::Repo::Commits ".";
@@ -29,5 +30,6 @@ ok ($commits, "Object created");
 my @commit_array = @{$commits->commits()};
 is( $#commit_array, 1, "Correct number of commits");
 is ( @{$commit_array[1]->{'files'}}, 2, "Commit info correct");
+is ( $commit_array[1]->{'author'}, $commit_author, "Author changed");
 
 diag( "Testing Git::Repo::Commits $Git::Repo::Commits::VERSION" );

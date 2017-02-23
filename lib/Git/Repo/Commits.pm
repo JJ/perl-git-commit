@@ -5,7 +5,7 @@ use strict;
 use Carp;
 use Git;
 
-use version; our $VERSION = qv('0.0.3');
+use version; our $VERSION = qv('0.0.4');
 
 # Other recommended modules (uncomment to use):
 #  use IO::Prompt;
@@ -27,8 +27,10 @@ sub new {
     my $commit_info = $repo->command('show', '--pretty=fuller', $commit);
     my @files = ($commit_info =~ /\+\+\+\s+b\/(.+)/g);
     my ($author) = ($commit_info =~ /Author:\s+(.+)/);
+    my ($commit) = ($commit_info =~ /Commit:\s+(.+)/);
     push @commit_info, { files => \@files,
-			 author => $author };
+			 author => $author,
+			 commit => $commit};
   }
   my $commits = { _repo => $dir,
 		  _name => $repo_name,
@@ -76,7 +78,13 @@ Creates an object with information about all commits
 
 =head2 commits
 
-Returns an array with commit information
+Returns an array with commit information, an array item per commit, in
+the shape
+
+    { author => $author,
+      committer => $committer,
+      files => \@files }
+
 
 =head2 name
 
