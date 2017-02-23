@@ -1,4 +1,4 @@
-use Test::More tests => 5; # -*- mode: cperl -*-
+use Test::More tests => 6; # -*- mode: cperl -*-
 use Git;
 use File::Slurp::Tiny qw(write_file);
 
@@ -30,6 +30,7 @@ ok ($commits, "Object created");
 my @commit_array = @{$commits->commits()};
 is( $#commit_array, 1, "Correct number of commits");
 is ( @{$commit_array[1]->{'files'}}, 2, "Commit info correct");
+is ( @{$commits->hashes()}, 2, "Commit hashes correct");
 is ( $commit_array[1]->{'author'}, $commit_author, "Author changed");
 
 diag( "Testing Git::Repo::Commits $Git::Repo::Commits::VERSION" );

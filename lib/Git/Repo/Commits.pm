@@ -5,7 +5,7 @@ use strict;
 use Carp;
 use Git;
 
-use version; our $VERSION = qv('0.0.4');
+use version; our $VERSION = qv('0.0.5');
 
 # Other recommended modules (uncomment to use):
 #  use IO::Prompt;
@@ -34,7 +34,8 @@ sub new {
   }
   my $commits = { _repo => $dir,
 		  _name => $repo_name,
-		  _commits => \@commit_info };
+		  _commits => \@commit_info,
+		  _hashes => \@these_revs};
   return bless $commits, $class;
 
 }
@@ -42,6 +43,11 @@ sub new {
 sub commits {
   my $self = shift;
   return $self->{'_commits'};
+}
+
+sub hashes {
+  my $self = shift;
+  return $self->{'_hashes'};
 }
 
 sub name {
@@ -85,6 +91,9 @@ the shape
       committer => $committer,
       files => \@files }
 
+=head2 hashes
+
+Returns an array with the hashes of all commits in the repo.
 
 =head2 name
 
