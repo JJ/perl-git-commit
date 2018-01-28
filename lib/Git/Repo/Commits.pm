@@ -5,7 +5,7 @@ use strict;
 use Carp;
 use Git;
 
-use version; our $VERSION = qv('0.0.6');
+use version; our $VERSION = qv('0.0.7'); # Work with dates
 
 # Other recommended modules (uncomment to use):
 #  use IO::Prompt;
@@ -20,7 +20,7 @@ sub new {
   my $dir = shift || croak "Need a repo directory";
   my ($repo_name)  = ($dir =~ m{/([^/]+)/?$} );
   my $repo = Git->repository (Directory => $dir);
-  my @these_revs = `cd $dir; git rev-list --all`;
+  my @these_revs = $repo->command('rev-list', '--all');
   my @commit_info;
   for my $commit ( reverse @these_revs ) {
     chop $commit;
