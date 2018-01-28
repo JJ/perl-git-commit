@@ -90,6 +90,7 @@ the shape
 
     { author => $author,
       committer => $committer,
+      commit_date => $date,
       files => \@files }
 
 =head2 hashes
@@ -114,7 +115,9 @@ Depends on L<Git>, which should be available either from your git
 installation or from CPAN.
 
 
+=head2 SEE ALSO
 
+L<Git::Raw> has an object oriented interface to repositories, including a class L<Git::Raw::Commit> to access commits. 
 
 =head1 BUGS AND LIMITATIONS
 
