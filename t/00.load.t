@@ -38,7 +38,7 @@ $commits = new Git::Repo::Commits ".", \@files ;
 ok ($commits, "File object created");
 my @commit_array = @{$commits->commits()};
 is( $#commit_array, 1, "Correct number of commits");
-is ( @{$commit_array[1]->{'files'}}, 1, "Commit info correct");
+is ( @{$commit_array[1]->{'files'}}, 2, "Commit info correct");
 is ( @{$commits->hashes()}, 2, "Commit hashes correct");
 
 diag( "Testing Git::Repo::Commits $Git::Repo::Commits::VERSION" );

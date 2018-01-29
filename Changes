@@ -1,3 +1,7 @@
+2018-01-29  Juan J. merelo  <jmerelo@penny>
+
+	* lib/Git/Repo/Commits.pm: Adds instantiation with a set of files
+
 2018-01-28  Juan J. merelo  <jmerelo@penny>
 
 	* lib/Git/Repo/Commits.pm: Adds commit date to the hash, now that I'm interested in it. 

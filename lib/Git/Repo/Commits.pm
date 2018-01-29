@@ -5,7 +5,7 @@ use strict;
 use Carp;
 use Git;
 
-use version; our $VERSION = qv('0.0.7'); # Work with dates
+use version; our $VERSION = qv('0.1.0'); # Work with a few files
 
 # Other recommended modules (uncomment to use):
 #  use IO::Prompt;
