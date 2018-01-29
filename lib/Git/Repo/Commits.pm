@@ -18,9 +18,15 @@ use version; our $VERSION = qv('0.0.7'); # Work with dates
 sub new {
   my $class = shift;
   my $dir = shift || croak "Need a repo directory";
+  my $files_arrayref = shift;
   my ($repo_name)  = ($dir =~ m{/([^/]+)/?$} );
   my $repo = Git->repository (Directory => $dir);
-  my @these_revs = $repo->command('rev-list', '--all');
+  my @these_revs;
+  if ( $files_arrayref ) {
+    @these_revs = $repo->command('rev-list', '--all', '--', join(" ", @$files_arrayref));
+  } else { 
+    @these_revs = $repo->command('rev-list', '--all');
+  }
   my @commit_info;
   for my $commit ( reverse @these_revs ) {
     my $commit_info = $repo->command('show', '--pretty=fuller', $commit);
