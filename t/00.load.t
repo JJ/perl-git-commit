@@ -1,4 +1,5 @@
 use Test::More tests => 10; # -*- mode: cperl -*-
+use File::Temp qw(tempdir);
 use Git;
 
 use lib qw(../lib lib );
@@ -8,8 +9,10 @@ BEGIN {
 }
 
 # Create test repo
-mkdir "test-repo";
-chdir "test-repo";
+my $dirname = tempdir(CLEANUP => 1);
+diag $dirname;
+mkdir $dirname;
+chdir $dirname;
 Git::command_oneline( 'init' );
 Git::command_oneline( 'config','user.email','jj@merelo.net' );
 Git::command_oneline( 'config','user.name','JJ' );
