@@ -10,6 +10,10 @@ WriteMakefile(
     PL_FILES            => {},
     PREREQ_PM => {
         'Test::More' => 0,
+        'Test::Exception' => 0,
+        'Cwd'        => 0,
+        'File::Basename' => 0,
+        'File::Temp' => 0,
 	    'version'    => 0,
 	    'Git' => 0,
 	    'Test::Perl::Critic' => 0, 
