@@ -61,7 +61,7 @@ sub name {
   my $self = shift;
   return $self->{'_name'};
 }
-		 
+
 
 1; # Magic true value required at end of module
 __END__
@@ -82,7 +82,7 @@ This document describes Git::Repo::Commits version 0.0.7
 
     my $commits = new Git::Repo::Commits /home/is/where/the/repo/is
 
-  
+
 =head1 DESCRIPTION
 
 =head2 new $repository
@@ -105,14 +105,15 @@ Returns an array with the hashes of all commits in the repo.
 
 =head2 name
 
-Returns the name of the directory, which usually is also the name of the repo. 
+Returns the name of the directory, which usually is also the name of
+the repo.
 
 
 =head1 CONFIGURATION AND ENVIRONMENT
 
 Git::Repo::Commits requires no configuration files or environment
 variables. It might be the case that git is not installed and this
-fails, but probably not. 
+fails, but probably not.
 
 
 =head1 DEPENDENCIES
@@ -123,7 +124,8 @@ installation or from CPAN.
 
 =head2 SEE ALSO
 
-L<Git::Raw> has an object oriented interface to repositories, including a class L<Git::Raw::Commit> to access commits. 
+L<Git::Raw> has an object oriented interface to repositories,
+including a class L<Git::Raw::Commit> to access commits.
 
 =head1 BUGS AND LIMITATIONS
 
@@ -139,10 +141,14 @@ L<https://github.com/JJ/perl-git-commit/issues> in GitHub.
 
 JJ  C<< <JMERELO@cpan.org> >>
 
+=head1 THANKS
+
+Gabor Szabo https://code-maven.org who helped me get the tests right,
+as well as with CI configuration.
 
 =head1 LICENCE AND COPYRIGHT
 
-Copyright (c) 2017, JJ C<< <JMERELO@cpan.org> >>. All rights reserved.
+Copyright (c) 2017-2021, JJ C<< <JMERELO@cpan.org> >>. All rights reserved.
 
 This module is free software; you can redistribute it and/or
 modify it under the same terms as Perl itself. See L<perlartistic>.
