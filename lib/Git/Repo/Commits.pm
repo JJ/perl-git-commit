@@ -24,7 +24,7 @@ sub new {
   my @these_revs;
   if ( $files_arrayref ) {
     @these_revs = $repo->command('rev-list', '--all', '--', join(" ", @$files_arrayref));
-  } else { 
+  } else {
     @these_revs = $repo->command('rev-list', '--all');
   }
   my @commit_info;
